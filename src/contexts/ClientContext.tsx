@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import React, { createContext } from 'react'
 import { iClientProviderValue, iProviderProps } from './interfaces'
 
 export const ClientContext = createContext({} as iClientProviderValue)
