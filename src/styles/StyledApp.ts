@@ -47,9 +47,13 @@ export const StyledApp = styled.div`
 	}
 
 	ul {
-		width: 40%;
+		height: 94px;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 15px;
 
 		li {
+			width: 320px;
 			display: flex;
 			align-items: center;
 			gap: 15px;
@@ -78,6 +82,64 @@ export const StyledApp = styled.div`
 					font-size: 20px;
 					font-weight: 500;
 				}
+			}
+		}
+	}
+
+	section {
+		width: 35%;
+		padding: 16px;
+		border-radius: 6px;
+		background-color: #383838;
+		position: sticky;
+
+		h3 {
+			font-size: 20px;
+			font-weight: 700;
+			margin-bottom: 20px;
+		}
+
+		form {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+			
+			fieldset {
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+
+				input {
+					height: 40px;
+					padding: 12px;
+					border-radius: 6px;
+					background-color: #585858;
+					outline: none;
+				}
+				
+				input:focus {
+					background-color: #afafaf;
+				}
+
+				input::placeholder {
+					color: #afafaf;
+				}
+
+				input:focus::placeholder {
+					color: #585858;
+				}
+			}
+
+			button {
+				height: 40px;
+				border-radius: 6px;
+				background-color: #afafaf;
+				font-size: 18px;
+			}
+			
+			button:hover {
+				background-color: #cbcbcb;
 			}
 		}
 	}

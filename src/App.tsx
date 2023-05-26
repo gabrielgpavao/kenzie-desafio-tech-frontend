@@ -30,19 +30,35 @@ export function App() {
 								<p><BsTelephone size={15}/> 12345678901</p>
 							</div>
 						</li>
+						<li>
+							<figure>
+								<CgProfile size={40}/>
+							</figure>
+							<div>
+								<p className='clientName'>André Gomes</p>
+								<p><MdEmail size={18}/> andre@mail.com</p>
+								<p><BsTelephone size={15}/> 12345678901</p>
+							</div>
+						</li>
 					</ul>
 
 					<section>
 						<h3>Adicionar novo contato</h3>
 						<form>
-							<label htmlFor='fullName'>Nome Completo</label>
-							<input id='fullName' type='text' placeholder='Digite o nome completo...'/>
+							<fieldset>
+								<label htmlFor='fullName'>Nome Completo</label>
+								<input id='fullName' type='text' placeholder='Digite o nome completo...'/>
+							</fieldset>
 
-							<label htmlFor='email'>Email</label>
-							<input id='email' type='email' placeholder='Digite o email...'/>
+							<fieldset>
+								<label htmlFor='email'>Email</label>
+								<input id='email' type='email' placeholder='Digite o email...'/>
+							</fieldset>
 
-							<label htmlFor='phoneNumber'>Telefone</label>
-							<input id='phoneNumber' type='text' placeholder='Digite o telefone...'/>
+							<fieldset>
+								<label htmlFor='phoneNumber'>Telefone</label>
+								<input id='phoneNumber' type='text' placeholder='Digite o telefone...'/>
+							</fieldset>
 
 							<button type='submit'>Adicionar</button>
 						</form>
