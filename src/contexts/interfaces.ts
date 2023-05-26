@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { Dispatch, ReactNode, SetStateAction } from 'react'
 
 export interface iProviderProps {
 	children: ReactNode
@@ -6,7 +6,9 @@ export interface iProviderProps {
 
 export interface iClientProviderValue {
 	login: (data: iLoginData) => Promise<void>,
-	register: (data: iRegisterData) => Promise<void>
+	register: (data: iRegisterData) => Promise<void>,
+	isRegisterModalOpen: boolean,
+	setIsRegisterModalOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export interface iLoginData {

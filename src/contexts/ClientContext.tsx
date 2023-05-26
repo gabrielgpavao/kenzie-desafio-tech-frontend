@@ -1,10 +1,12 @@
-import React, { createContext, useEffect } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { iClientProviderValue, iProviderProps, iLoginData, iRegisterData } from './interfaces'
 import { api } from '../services/api'
 
 export const ClientContext = createContext({} as iClientProviderValue)
 
 export function ClientProvider({ children }: iProviderProps) {
+	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(false)
+
 	async function login(clientCredentials: iLoginData) {
 		try {
 			const response = await api.post('/login', clientCredentials)
@@ -46,7 +48,7 @@ export function ClientProvider({ children }: iProviderProps) {
 	}, [])
 
 	return (
-		<ClientContext.Provider value={{ login, register }}>
+		<ClientContext.Provider value={{ login, register, isRegisterModalOpen, setIsRegisterModalOpen }}>
 			{children}
 		</ClientContext.Provider>
 	)
