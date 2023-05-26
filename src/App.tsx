@@ -1,6 +1,8 @@
 import React from 'react'
 import { ClientProvider } from './contexts/ClientContext'
 import { CgProfile } from 'react-icons/cg'
+import { MdEmail } from 'react-icons/md'
+import { BsTelephone } from 'react-icons/bs'
 import { StyledApp } from './styles/StyledApp'
 
 export function App() {
@@ -8,11 +10,10 @@ export function App() {
 		<ClientProvider>
 			<StyledApp>
 				<header>
-					<h1>Desafio Tech</h1>
+					<h1>Desafio Tech<br/>Full Stack</h1>
 					<div>
-						<p>Nome: <span>Gabriel Galvão Pavão</span></p>
-						<p>Email: <span>gabriel@mail.com</span></p>
-						<p>Telefone: <span>12345678901</span></p>
+						<p><MdEmail size={18}/>gabriel@mail.com</p>
+						<p><BsTelephone size={15}/>12345678901</p>
 					</div>
 				</header>
 
