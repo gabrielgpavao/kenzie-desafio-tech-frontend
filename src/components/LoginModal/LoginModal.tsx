@@ -1,15 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { BaseModal } from '../BaseModal/BaseModal'
 import { StyledForm } from '../../styles/StyledForm'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { ClientContext } from '../../contexts/ClientContext'
 import { loginSchema, tLoginData } from './loginSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
-
-type FormData = {
-    email: string;
-    password: string;
-};
+import { useClient } from '../../hooks/useClient'
 
 export function LoginModal() {
 	const { register, handleSubmit, formState: { errors }} = useForm<tLoginData>({
@@ -17,10 +12,10 @@ export function LoginModal() {
 		resolver: zodResolver(loginSchema)
 	})
 
-	const { login } = useContext(ClientContext)
+	const { login } = useClient()
 
-	const submitLogin : SubmitHandler<tLoginData> = (data) => {
-		login(data)
+	const submitLogin : SubmitHandler<tLoginData> = async (data) => {
+		await login(data)
 	}
 
 	return (
