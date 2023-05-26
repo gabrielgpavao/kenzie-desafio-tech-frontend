@@ -1,10 +1,11 @@
 import React from 'react'
 import { BaseModal } from '../BaseModal/BaseModal'
+import { StyledForm } from '../../styles/StyledForm'
 
 export function RegisterModal() {
 	return (
 		<BaseModal>
-			<form>
+			<StyledForm>
 				<fieldset>
 					<label htmlFor='registerFullName'>Nome Completo</label>
 					<input id='registerFullName' type='text' placeholder='Digite seu nome completo...'/>
@@ -26,7 +27,7 @@ export function RegisterModal() {
 				</fieldset>
 
 				<button type='submit'>Cadastrar</button>
-			</form>
+			</StyledForm>
 		</BaseModal>
 	)
 }

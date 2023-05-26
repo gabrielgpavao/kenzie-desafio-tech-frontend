@@ -4,10 +4,14 @@ import { CgProfile } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
 import { StyledApp } from './styles/StyledApp'
+import { RegisterModal } from './components/RegisterModal/RegisterModal'
+import { StyledForm } from './styles/StyledForm'
 
 export function App() {
 	return (
 		<ClientProvider>
+			<RegisterModal/>
+
 			<StyledApp>
 				<header>
 					<h1>Desafio Tech<br/>Full Stack</h1>
@@ -44,7 +48,7 @@ export function App() {
 
 					<section>
 						<h3>Adicionar novo contato</h3>
-						<form>
+						<StyledForm>
 							<fieldset>
 								<label htmlFor='fullName'>Nome Completo</label>
 								<input id='fullName' type='text' placeholder='Digite o nome completo...'/>
@@ -61,7 +65,7 @@ export function App() {
 							</fieldset>
 
 							<button type='submit'>Adicionar</button>
-						</form>
+						</StyledForm>
 					</section>
 				</main>
 			</StyledApp>

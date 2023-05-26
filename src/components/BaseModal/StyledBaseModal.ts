@@ -16,6 +16,6 @@ export const StyledBaseModal = styled.div`
 		max-width: 400px;
 		padding: 20px;
 		border-radius: 6px;
-		background-color: #585858;
+		background-color: #1b1b1e;
 	}
 `
