@@ -21,31 +21,34 @@ export function App() {
 				<main>
 					<ul>
 						<li>
-							<CgProfile/>
+							<figure>
+								<CgProfile size={40}/>
+							</figure>
 							<div>
-								<p>Nome: <span>André Gomes</span></p>
-								<p>Email: <span>andre@mail.com</span></p>
-								<p>Telefone: <span>12345678901</span></p>
+								<p className='clientName'>André Gomes</p>
+								<p><MdEmail size={18}/> andre@mail.com</p>
+								<p><BsTelephone size={15}/> 12345678901</p>
 							</div>
 						</li>
 					</ul>
+
+					<section>
+						<h3>Adicionar novo contato</h3>
+						<form>
+							<label htmlFor='fullName'>Nome Completo</label>
+							<input id='fullName' type='text' placeholder='Digite o nome completo...'/>
+
+							<label htmlFor='email'>Email</label>
+							<input id='email' type='email' placeholder='Digite o email...'/>
+
+							<label htmlFor='phoneNumber'>Telefone</label>
+							<input id='phoneNumber' type='text' placeholder='Digite o telefone...'/>
+
+							<button type='submit'>Adicionar</button>
+						</form>
+					</section>
 				</main>
 
-				<section>
-					<h3>Adicionar novo contato</h3>
-					<form>
-						<label htmlFor='fullName'>Nome Completo</label>
-						<input id='fullName' type='text' placeholder='Digite o nome completo...'/>
-
-						<label htmlFor='email'>Email</label>
-						<input id='email' type='email' placeholder='Digite o email...'/>
-
-						<label htmlFor='phoneNumber'>Telefone</label>
-						<input id='phoneNumber' type='text' placeholder='Digite o telefone...'/>
-
-						<button type='submit'>Adicionar</button>
-					</form>
-				</section>
 			</StyledApp>
 		</ClientProvider>
 	)
