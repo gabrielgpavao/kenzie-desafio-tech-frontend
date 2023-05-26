@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { BaseModal } from '../BaseModal/BaseModal'
 import { StyledForm } from '../../styles/StyledForm'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { ClientContext } from '../../contexts/ClientContext'
 import { loginSchema, tLoginData } from './loginSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useClient } from '../../hooks/useClient'
@@ -15,8 +14,8 @@ export function LoginModal() {
 
 	const { login } = useClient()
 
-	const submitLogin : SubmitHandler<tLoginData> = (data) => {
-		login(data)
+	const submitLogin : SubmitHandler<tLoginData> = async (data) => {
+		await login(data)
 	}
 
 	return (

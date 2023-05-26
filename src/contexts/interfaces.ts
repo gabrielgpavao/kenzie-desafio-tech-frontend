@@ -5,8 +5,8 @@ export interface iProviderProps {
 }
 
 export interface iClientProviderValue {
-	login: (data: iLoginData) => void,
-	register: (data: iRegisterData) => void
+	login: (data: iLoginData) => Promise<void>,
+	register: (data: iRegisterData) => Promise<void>
 }
 
 export interface iLoginData {
