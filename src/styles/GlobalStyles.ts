@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -22,11 +24,12 @@ export const GlobalStyles = createGlobalStyle`
         line-height: 1;
         list-style: none;
         box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Roboto', sans-serif;
     }
     
     body{
         background-color: #26262C;
+		color: #f6f6f6;
     }
 
     a {
