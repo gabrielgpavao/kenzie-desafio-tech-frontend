@@ -27,6 +27,22 @@ export function App() {
 					</li>
 				</ul>
 			</main>
+
+			<section>
+				<h3>Adicionar novo contato</h3>
+				<form>
+					<label htmlFor='fullName'>Nome Completo</label>
+					<input id='fullName' type='text' placeholder='Digite o nome completo...'/>
+
+					<label htmlFor='email'>Email</label>
+					<input id='email' type='email' placeholder='Digite o email...'/>
+
+					<label htmlFor='phoneNumber'>Telefone</label>
+					<input id='phoneNumber' type='text' placeholder='Digite o telefone...'/>
+
+					<button type='submit'>Adicionar</button>
+				</form>
+			</section>
 		</ClientProvider>
 	)
 }
