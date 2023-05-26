@@ -6,12 +6,11 @@ import { BsTelephone } from 'react-icons/bs'
 import { StyledApp } from './styles/StyledApp'
 import { RegisterModal } from './components/RegisterModal/RegisterModal'
 import { StyledForm } from './styles/StyledForm'
+import { LoginModal } from './components/LoginModal/LoginModal'
 
 export function App() {
 	return (
 		<ClientProvider>
-			<RegisterModal/>
-
 			<StyledApp>
 				<header>
 					<h1>Desafio Tech<br/>Full Stack</h1>
