@@ -12,7 +12,7 @@ export function RegisterModal() {
 		resolver: zodResolver(registerSchema)
 	})
 
-	const { register: registerClient } = useClient()
+	const { register: registerClient, setIsRegisterModalOpen } = useClient()
 
 	const submitRegister : SubmitHandler<tRegisterData> = async (data) => {
 		await registerClient(data)
@@ -42,6 +42,12 @@ export function RegisterModal() {
 				</fieldset>
 
 				<button type='submit'>Cadastrar</button>
+
+				<small>Já possui cadastro? Clique{}
+					<span onClick={() => { setIsRegisterModalOpen(false) }}>
+						aqui
+					</span>
+				</small>
 			</StyledForm>
 		</BaseModal>
 	)
