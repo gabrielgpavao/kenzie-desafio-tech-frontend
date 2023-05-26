@@ -64,7 +64,6 @@ export function App() {
 						</form>
 					</section>
 				</main>
-
 			</StyledApp>
 		</ClientProvider>
 	)
