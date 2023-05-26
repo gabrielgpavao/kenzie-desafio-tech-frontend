@@ -3,15 +3,18 @@ import { BaseModal } from '../BaseModal/BaseModal'
 import { StyledForm } from '../../styles/StyledForm'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useClient } from '../../hooks/useClient'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { registerSchema, tRegisterData } from './registerSchema'
 
 export function RegisterModal() {
-	const { register, handleSubmit, formState: { errors }} = useForm({
-		mode: 'onBlur'
+	const { register, handleSubmit, formState: { errors }} = useForm<tRegisterData>({
+		mode: 'onBlur',
+		resolver: zodResolver(registerSchema)
 	})
 
 	const { register: registerClient } = useClient()
 
-	const submitRegister : SubmitHandler<any> = async (data) => {
+	const submitRegister : SubmitHandler<tRegisterData> = async (data) => {
 		await registerClient(data)
 	}
 
@@ -20,7 +23,7 @@ export function RegisterModal() {
 			<StyledForm onSubmit={handleSubmit(submitRegister)} noValidate>
 				<fieldset>
 					<label htmlFor='registerFullName'>Nome Completo</label>
-					<input id='registerFullName' type='text' placeholder='Digite seu nome completo...' {...register('name')}/>
+					<input id='registerFullName' type='text' placeholder='Digite seu nome completo...' {...register('fullName')}/>
 				</fieldset>
 
 				<fieldset>
