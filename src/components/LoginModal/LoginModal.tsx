@@ -3,6 +3,8 @@ import { BaseModal } from '../BaseModal/BaseModal'
 import { StyledForm } from '../../styles/StyledForm'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { ClientContext } from '../../contexts/ClientContext'
+import { loginSchema, tLoginData } from './loginSchema'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 type FormData = {
     email: string;
@@ -10,13 +12,14 @@ type FormData = {
 };
 
 export function LoginModal() {
-	const { register, handleSubmit, formState: { errors }} = useForm<FormData>({
-		mode: 'onBlur'
+	const { register, handleSubmit, formState: { errors }} = useForm<tLoginData>({
+		mode: 'onBlur',
+		resolver: zodResolver(loginSchema)
 	})
 
 	const { login } = useContext(ClientContext)
 
-	const submitLogin : SubmitHandler<FormData> = (data) => {
+	const submitLogin : SubmitHandler<tLoginData> = (data) => {
 		login(data)
 	}
 
