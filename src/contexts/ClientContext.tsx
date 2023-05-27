@@ -5,13 +5,14 @@ import { api } from '../services/api'
 export const ClientContext = createContext({} as iClientProviderValue)
 
 export function ClientProvider({ children }: iProviderProps) {
-	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(false)
+	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(true)
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false)
 
 	async function login(clientCredentials: iLoginData) {
 		try {
 			const response = await api.post('/login', clientCredentials)
-			sessionStorage.setItem('@desafio-tech:token', response.data)
+			sessionStorage.setItem('@desafio-tech:token', response.data.token)
+			setIsLoginModalOpen(false)
 
 		} catch (error) {
 			console.log(error)
@@ -24,8 +25,10 @@ export function ClientProvider({ children }: iProviderProps) {
 
 			await login({
 				email: response.data.email,
-				password: response.data.password
+				password: clientData.password
 			})
+
+			setIsRegisterModalOpen(false)
 
 		} catch (error) {
 			console.log(error)
