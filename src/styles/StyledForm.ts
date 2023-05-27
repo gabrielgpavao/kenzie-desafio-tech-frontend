@@ -6,6 +6,10 @@ export const StyledForm = styled.form`
 	flex-direction: column;
 	gap: 15px;
 	
+	h2 {
+		font-size: 18px;
+	}
+	
 	fieldset {
 		display: flex;
 		flex-direction: column;

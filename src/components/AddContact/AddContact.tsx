@@ -1,13 +1,15 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { StyledForm } from '../../styles/StyledForm'
-import { tAddContact } from './addContactSchema'
+import { addContactSchema, tAddContact } from './addContactSchema'
 import { useContact } from '../../hooks/useContact'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 export function AddContact() {
 	const { createContact, listContacts } = useContact()
 
 	const { register, handleSubmit, reset } = useForm<tAddContact>({
-		mode: 'onSubmit'
+		mode: 'onSubmit',
+		resolver: zodResolver(addContactSchema)
 	})
 
 	const submitContact: SubmitHandler<tAddContact> = async (data) => {
@@ -35,7 +37,7 @@ export function AddContact() {
 				</fieldset>
 
 				<fieldset>
-					<label htmlFor='c'>Telefone</label>
+					<label htmlFor='phoneNumber'>Telefone</label>
 					<input id='phoneNumber' type='text' placeholder='Digite o telefone...' {...register('phoneNumber')}/>
 				</fieldset>
 

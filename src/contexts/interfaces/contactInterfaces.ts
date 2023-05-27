@@ -1,11 +1,12 @@
 import { Dispatch, SetStateAction } from 'react'
 
 export interface iContactProviderValues {
-	createContact: (contactData: tAddContactData) => Promise<void>,
-	deleteContact: (clientId: string) => Promise<void>,
 	contactsList: Array<iContactData>,
 	setContactsList: Dispatch<SetStateAction<iContactData[]>>,
-	listContacts: () => Promise<void>
+	createContact: (contactData: tAddContactData) => Promise<void>,
+	deleteContact: (clientId: string) => Promise<void>,
+	listContacts: () => Promise<void>,
+	updateContact: (contactId: string, contactData: tAddContactData) => Promise<void>
 }
 
 export interface iContactData {
