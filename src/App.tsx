@@ -1,5 +1,4 @@
 import React from 'react'
-import { ClientProvider } from './contexts/ClientContext'
 import { CgProfile } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
@@ -13,7 +12,7 @@ export function App() {
 	const { isRegisterModalOpen, isLoginModalOpen } = useClient()
 
 	return (
-		<ClientProvider>
+		<>
 			{isRegisterModalOpen && <RegisterModal/>}
 			{isLoginModalOpen && <LoginModal/>}
 
@@ -74,6 +73,6 @@ export function App() {
 					</section>
 				</main>
 			</StyledApp>
-		</ClientProvider>
+		</>
 	)
 }
