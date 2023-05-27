@@ -10,11 +10,12 @@ import { LoginModal } from './components/LoginModal/LoginModal'
 import { useClient } from './hooks/useClient'
 
 export function App() {
-	const { isRegisterModalOpen } = useClient()
+	const { isRegisterModalOpen, isLoginModalOpen } = useClient()
 
 	return (
 		<ClientProvider>
 			{isRegisterModalOpen && <RegisterModal/>}
+			{isLoginModalOpen && <LoginModal/>}
 
 			<StyledApp>
 				<header>
