@@ -1,10 +1,10 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { useClient } from '../../hooks/useClient'
 import { StyledForm } from '../../styles/StyledForm'
 import { tAddContact } from './addContactSchema'
+import { useContact } from '../../hooks/useContact'
 
 export function AddContact() {
-	const { createContact } = useClient()
+	const { createContact } = useContact()
 
 	const { register, handleSubmit, reset } = useForm<tAddContact>({
 		mode: 'onSubmit'

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { iClientProviderValue, iProviderProps, iLoginData, iRegisterData, iClientData } from './interfaces'
+import { iClientProviderValue, iProviderProps, iLoginData, iRegisterData, iClientData } from './interfaces/clientInterfaces'
 import { api } from '../services/api'
 
 export const ClientContext = createContext({} as iClientProviderValue)
@@ -53,22 +53,6 @@ export function ClientProvider({ children }: iProviderProps) {
 		}
 	}
 
-	async function createContact(contactData: iClientData) {
-		try {
-			await api.post('/contacts', contactData)
-		} catch (error) {
-			console.log(error)
-		}
-	}
-
-	async function deleteContact(contactId: string) {
-		try {
-			await api.delete(`/contacts/${contactId}`)
-		} catch (error) {
-			console.log(error)
-		}
-	}
-
 	useEffect(() => {
 		async function handleRetrieveClientInfo() {
 			try {
@@ -98,9 +82,7 @@ export function ClientProvider({ children }: iProviderProps) {
 			setIsRegisterModalOpen,
 			isLoginModalOpen,
 			setIsLoginModalOpen,
-			clientInfo,
-			createContact,
-			deleteContact
+			clientInfo
 		}}>
 			{children}
 		</ClientContext.Provider>
