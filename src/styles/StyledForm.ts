@@ -43,4 +43,12 @@ export const StyledForm = styled.form`
 		background-color: #cbcbcb;
 	}
 
+	small {
+		color: #afafaf;
+
+		span {
+			text-decoration: underline;
+			cursor: pointer;
+		}
+	}
 `
