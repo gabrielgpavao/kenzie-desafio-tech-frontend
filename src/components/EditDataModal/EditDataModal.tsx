@@ -1,24 +1,31 @@
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { StyledForm } from '../../styles/StyledForm'
 import { BaseModal } from '../BaseModal/BaseModal'
 
 export function EditDataModal() {
+	const { register, handleSubmit } = useForm<any>({})
+
+	const submitUpdate : SubmitHandler<any> = async (data) => {
+		console.log(data)
+	}
+
 	return (
 		<BaseModal>
-			<StyledForm>
-				<h2>Editar Informações de Contato</h2>
+			<StyledForm onSubmit={handleSubmit(submitUpdate)}>
+				<h2>Editar Informações do Contato</h2>
 				<fieldset>
-					<label htmlFor='editFullName'>Nome Completo</label>
-					<input id='editFullName' type='text' placeholder='Digite o nome completo...'/>
+					<label htmlFor='editContactFullName'>Nome Completo</label>
+					<input id='editContactFullName' type='text' placeholder='Digite o nome completo...' {...register('fullName')}/>
 				</fieldset>
 
 				<fieldset>
-					<label htmlFor='editEmail'>Email</label>
-					<input id='editEmail' type='email' placeholder='Digite o email...'/>
+					<label htmlFor='editContactEmail'>Email</label>
+					<input id='editContactEmail' type='email' placeholder='Digite o email...' {...register('email')}/>
 				</fieldset>
 
 				<fieldset>
-					<label htmlFor='editPhoneNumber'>Telefone</label>
-					<input id='editPhoneNumber' type='text' placeholder='Digite o telefone...'/>
+					<label htmlFor='editContactPhoneNumber'>Telefone</label>
+					<input id='editContactPhoneNumber' type='text' placeholder='Digite o telefone...' {...register('phoneNumber')}/>
 				</fieldset>
 
 				<button type='submit'>Editar</button>
