@@ -6,6 +6,7 @@ export const ClientContext = createContext({} as iClientProviderValue)
 
 export function ClientProvider({ children }: iProviderProps) {
 	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(false)
+	const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false)
 
 	async function login(clientCredentials: iLoginData) {
 		try {
@@ -48,7 +49,14 @@ export function ClientProvider({ children }: iProviderProps) {
 	}, [])
 
 	return (
-		<ClientContext.Provider value={{ login, register, isRegisterModalOpen, setIsRegisterModalOpen }}>
+		<ClientContext.Provider value={{
+			login,
+			register,
+			isRegisterModalOpen,
+			setIsRegisterModalOpen,
+			isLoginModalOpen,
+			setIsLoginModalOpen
+		}}>
 			{children}
 		</ClientContext.Provider>
 	)
