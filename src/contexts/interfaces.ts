@@ -27,11 +27,9 @@ export interface iRegisterData extends iLoginData {
 }
 
 export interface iClientData {
-	id: number,
 	fullName: string,
 	email: string,
 	phoneNumber: string,
-	createdAt: Date,
 	contacts?: Array<iContactData>
 }
 

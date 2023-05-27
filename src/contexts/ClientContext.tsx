@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { iClientProviderValue, iProviderProps, iLoginData, iRegisterData, iClientData } from './interfaces'
 import { api } from '../services/api'
 
