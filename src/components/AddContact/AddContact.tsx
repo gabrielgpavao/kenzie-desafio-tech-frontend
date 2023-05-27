@@ -1,15 +1,16 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useClient } from '../../hooks/useClient'
 import { StyledForm } from '../../styles/StyledForm'
+import { tAddContact } from './addContactSchema'
 
 export function AddContact() {
 	const { createContact } = useClient()
 
-	const { register, handleSubmit } = useForm<any>({
+	const { register, handleSubmit } = useForm<tAddContact>({
 		mode: 'onSubmit'
 	})
 
-	const submitContact: SubmitHandler<any> = async (data) => {
+	const submitContact: SubmitHandler<tAddContact> = async (data) => {
 		await createContact(data)
 	}
 
