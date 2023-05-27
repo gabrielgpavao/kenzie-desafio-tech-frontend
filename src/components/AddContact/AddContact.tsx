@@ -6,12 +6,17 @@ import { tAddContact } from './addContactSchema'
 export function AddContact() {
 	const { createContact } = useClient()
 
-	const { register, handleSubmit } = useForm<tAddContact>({
+	const { register, handleSubmit, reset } = useForm<tAddContact>({
 		mode: 'onSubmit'
 	})
 
 	const submitContact: SubmitHandler<tAddContact> = async (data) => {
-		await createContact(data)
+		try {
+			await createContact(data)
+			reset()
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	return (
