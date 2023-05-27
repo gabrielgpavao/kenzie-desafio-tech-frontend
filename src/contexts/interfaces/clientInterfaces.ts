@@ -1,4 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction } from 'react'
+import { iContactData } from './contactInterfaces'
 
 export interface iProviderProps {
 	children: ReactNode
@@ -11,9 +12,7 @@ export interface iClientProviderValue {
 	setIsRegisterModalOpen: Dispatch<SetStateAction<boolean>>,
 	isLoginModalOpen: boolean,
 	setIsLoginModalOpen: Dispatch<SetStateAction<boolean>>,
-	clientInfo: iClientData,
-	createContact: (clientData: iClientData) => Promise<void>,
-	deleteContact: (clientId: string) => Promise<void>
+	clientInfo: iClientData
 }
 
 export interface iLoginData {
@@ -33,11 +32,3 @@ export interface iClientData {
 	contacts?: Array<iContactData>
 }
 
-export interface iContactData {
-	id: number,
-	fullName: string,
-	email: string,
-	phoneNumber: string,
-	addedAt: Date,
-	clientId: number
-}

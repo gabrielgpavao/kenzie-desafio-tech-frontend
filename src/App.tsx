@@ -5,6 +5,7 @@ import { useClient } from './hooks/useClient'
 import { Header } from './components/Header/Header'
 import { ContactsList } from './components/ContactsList/ContactsList'
 import { AddContact } from './components/AddContact/AddContact'
+import { ContactProvider } from './contexts/ContactContext'
 
 export function App() {
 	const { isRegisterModalOpen, isLoginModalOpen } = useClient()
@@ -19,8 +20,10 @@ export function App() {
 
 				<h2>Seus Contatos</h2>
 				<main>
-					<ContactsList/>
-					<AddContact/>
+					<ContactProvider>
+						<ContactsList/>
+						<AddContact/>
+					</ContactProvider>
 				</main>
 			</StyledApp>
 		</>

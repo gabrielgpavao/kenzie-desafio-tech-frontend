@@ -1,14 +1,14 @@
-import { useClient } from '../../hooks/useClient'
 import { CgProfile } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
+import { useContact } from '../../hooks/useContact'
 
 export function ContactsList() {
-	const { clientInfo } = useClient()
+	const { contactsList } = useContact()
 
 	return (
 		<ul>
-			{clientInfo.contacts?.map((contact) => (
+			{contactsList.map((contact) => (
 				<li key={contact.id} id={contact.id + ''}>
 					<figure>
 						<CgProfile size={40}/>
