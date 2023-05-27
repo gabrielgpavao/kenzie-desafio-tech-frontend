@@ -37,9 +37,9 @@ export function ClientProvider({ children }: iProviderProps) {
 		}
 	}
 
-	async function retrieveClientInfo(id: string, token: string) {
+	async function retrieveClientInfo(clientId: string, token: string) {
 		try {
-			const response = await api.get(`/clients/${id}`, {
+			const response = await api.get(`/clients/${clientId}`, {
 				headers: {
 					Authorization: `Bearer ${token}`
 				}
@@ -48,6 +48,14 @@ export function ClientProvider({ children }: iProviderProps) {
 			api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
 			return response.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	async function createContact(contactData: iClientData) {
+		try {
+			await api.post('/contacts', contactData)
 		} catch (error) {
 			console.log(error)
 		}
