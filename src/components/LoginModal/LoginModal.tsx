@@ -33,10 +33,10 @@ export function LoginModal() {
 
 				<button type='submit'>Submeter</button>
 				<small>
-					Ainda não está cadastrado? Clique{}
+					Ainda não está cadastrado? Clique {}
 					<span onClick={() => { setIsLoginModalOpen(false); setIsRegisterModalOpen(true) }}>
-						aqui.
-					</span>
+						aqui
+					</span>.
 				</small>
 			</StyledForm>
 		</BaseModal>

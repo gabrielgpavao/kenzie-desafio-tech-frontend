@@ -43,10 +43,10 @@ export function RegisterModal() {
 
 				<button type='submit'>Cadastrar</button>
 
-				<small>Já possui cadastro? Clique{}
+				<small>Já possui cadastro? Clique {}
 					<span onClick={() => { setIsRegisterModalOpen(false); setIsLoginModalOpen(true) }}>
-						aqui.
-					</span>
+						aqui
+					</span>.
 				</small>
 			</StyledForm>
 		</BaseModal>
