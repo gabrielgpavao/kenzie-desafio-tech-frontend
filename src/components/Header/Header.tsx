@@ -1,14 +1,14 @@
 import { BsTelephone } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 import { useClient } from '../../hooks/useClient'
-import { EditDataModal } from '../EditDataModal/EditDataModal'
+import { EditContactModal } from '../EditContactModal/EditContactModal'
 
 export function Header() {
 	const { clientInfo } = useClient()
 
 	return (
 		<>
-			<EditDataModal/>
+			<EditContactModal/>
 			<header>
 				<h1>Desafio Tech<br/>Full Stack</h1>
 				<div>

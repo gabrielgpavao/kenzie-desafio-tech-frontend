@@ -2,7 +2,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { StyledForm } from '../../styles/StyledForm'
 import { BaseModal } from '../BaseModal/BaseModal'
 
-export function EditDataModal() {
+export function EditContactModal() {
 	const { register, handleSubmit } = useForm<any>({})
 
 	const submitUpdate : SubmitHandler<any> = async (data) => {
