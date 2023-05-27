@@ -1,15 +1,13 @@
-import { CgProfile } from 'react-icons/cg'
-import { MdEmail } from 'react-icons/md'
-import { BsTelephone } from 'react-icons/bs'
 import { StyledApp } from './styles/StyledApp'
 import { RegisterModal } from './components/RegisterModal/RegisterModal'
 import { StyledForm } from './styles/StyledForm'
 import { LoginModal } from './components/LoginModal/LoginModal'
 import { useClient } from './hooks/useClient'
 import { Header } from './components/Header/Header'
+import { ContactsList } from './components/ContactsList/ContactsList'
 
 export function App() {
-	const { isRegisterModalOpen, isLoginModalOpen, clientInfo } = useClient()
+	const { isRegisterModalOpen, isLoginModalOpen } = useClient()
 
 	return (
 		<>
@@ -21,20 +19,7 @@ export function App() {
 
 				<h2>Seus Contatos</h2>
 				<main>
-					<ul>
-						{clientInfo.contacts?.map((contact) => (
-							<li key={contact.id} id={contact.id + ''}>
-								<figure>
-									<CgProfile size={40}/>
-								</figure>
-								<div>
-									<p className='clientName'>{contact.fullName}</p>
-									<p><MdEmail size={18}/> {contact.email}</p>
-									<p><BsTelephone size={15}/> {contact.phoneNumber}</p>
-								</div>
-							</li>
-						))}
-					</ul>
+					<ContactsList/>
 
 					<section>
 						<h3>Adicionar novo contato</h3>
