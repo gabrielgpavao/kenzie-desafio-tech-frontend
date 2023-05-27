@@ -12,7 +12,7 @@ export function LoginModal() {
 		resolver: zodResolver(loginSchema)
 	})
 
-	const { login } = useClient()
+	const { login, setIsLoginModalOpen, setIsRegisterModalOpen } = useClient()
 
 	const submitLogin : SubmitHandler<tLoginData> = async (data) => {
 		await login(data)
@@ -32,6 +32,12 @@ export function LoginModal() {
 				</fieldset>
 
 				<button type='submit'>Submeter</button>
+				<small>
+					Ainda não está cadastrado? Clique{}
+					<span onClick={() => { setIsLoginModalOpen(false); setIsRegisterModalOpen(true) }}>
+						aqui.
+					</span>
+				</small>
 			</StyledForm>
 		</BaseModal>
 	)
