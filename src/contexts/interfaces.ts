@@ -10,7 +10,8 @@ export interface iClientProviderValue {
 	isRegisterModalOpen: boolean,
 	setIsRegisterModalOpen: Dispatch<SetStateAction<boolean>>,
 	isLoginModalOpen: boolean,
-	setIsLoginModalOpen: Dispatch<SetStateAction<boolean>>
+	setIsLoginModalOpen: Dispatch<SetStateAction<boolean>>,
+	clientInfo: iClientData
 }
 
 export interface iLoginData {
@@ -21,4 +22,22 @@ export interface iLoginData {
 export interface iRegisterData extends iLoginData {
 	fullName: string
 	phoneNumber: string
+}
+
+export interface iClientData {
+	id: number,
+	fullName: string,
+	email: string,
+	phoneNumber: string,
+	createdAt: Date,
+	contacts?: Array<iContactData>
+}
+
+export interface iContactData {
+	id: number,
+	fullName: string,
+	email: string,
+	phoneNumber: string,
+	addedAt: Date,
+	clientId: number
 }
