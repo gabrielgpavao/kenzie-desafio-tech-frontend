@@ -3,15 +3,22 @@ import { StyledForm } from '../../styles/StyledForm'
 import { BaseModal } from '../BaseModal/BaseModal'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { addContactSchema, tAddContact } from '../AddContact/addContactSchema'
+import { useContact } from '../../hooks/useContact'
 
-export function EditContactModal() {
+interface iEditContactModalProps {
+	contactId: string
+}
+
+export function EditContactModal({ contactId }: iEditContactModalProps) {
 	const { register, handleSubmit } = useForm<tAddContact>({
 		mode: 'onSubmit',
 		resolver: zodResolver(addContactSchema)
 	})
 
+	const { updateContact } = useContact()
+
 	const submitUpdate : SubmitHandler<tAddContact> = async (data) => {
-		console.log(data)
+		await updateContact(contactId, data)
 	}
 
 	return (
