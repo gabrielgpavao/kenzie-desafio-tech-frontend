@@ -98,7 +98,9 @@ export function ClientProvider({ children }: iProviderProps) {
 			setIsRegisterModalOpen,
 			isLoginModalOpen,
 			setIsLoginModalOpen,
-			clientInfo
+			clientInfo,
+			createContact,
+			deleteContact
 		}}>
 			{children}
 		</ClientContext.Provider>

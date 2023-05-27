@@ -11,7 +11,9 @@ export interface iClientProviderValue {
 	setIsRegisterModalOpen: Dispatch<SetStateAction<boolean>>,
 	isLoginModalOpen: boolean,
 	setIsLoginModalOpen: Dispatch<SetStateAction<boolean>>,
-	clientInfo: iClientData
+	clientInfo: iClientData,
+	createContact: (clientData: iClientData) => Promise<void>,
+	deleteContact: (clientId: string) => Promise<void>
 }
 
 export interface iLoginData {
