@@ -1,4 +1,3 @@
-import { useClient } from '../../hooks/useClient'
 import { CgProfile } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'

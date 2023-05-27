@@ -45,7 +45,8 @@ export function ContactProvider({ children }: iProviderProps) {
 			createContact,
 			deleteContact,
 			contactsList,
-			setContactsList
+			setContactsList,
+			listContacts
 		}}>
 			{children}
 		</ContactContext.Provider>

@@ -4,7 +4,8 @@ export interface iContactProviderValues {
 	createContact: (contactData: tAddContactData) => Promise<void>,
 	deleteContact: (clientId: string) => Promise<void>,
 	contactsList: Array<iContactData>,
-	setContactsList: Dispatch<SetStateAction<iContactData[]>>
+	setContactsList: Dispatch<SetStateAction<iContactData[]>>,
+	listContacts: () => Promise<void>
 }
 
 export interface iContactData {
