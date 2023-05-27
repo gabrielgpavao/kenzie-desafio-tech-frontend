@@ -49,6 +49,7 @@ module.exports = {
 				'after': true
 			}
 		],
-		'no-multi-spaces': 'error'
+		'no-multi-spaces': 'error',
+		'react/react-in-jsx-scope': 'off'
 	}
 }
