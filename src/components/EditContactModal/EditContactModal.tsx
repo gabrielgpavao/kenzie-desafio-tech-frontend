@@ -1,11 +1,16 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { StyledForm } from '../../styles/StyledForm'
 import { BaseModal } from '../BaseModal/BaseModal'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { addContactSchema, tAddContact } from '../AddContact/addContactSchema'
 
 export function EditContactModal() {
-	const { register, handleSubmit } = useForm<any>({})
+	const { register, handleSubmit } = useForm<tAddContact>({
+		mode: 'onSubmit',
+		resolver: zodResolver(addContactSchema)
+	})
 
-	const submitUpdate : SubmitHandler<any> = async (data) => {
+	const submitUpdate : SubmitHandler<tAddContact> = async (data) => {
 		console.log(data)
 	}
 
