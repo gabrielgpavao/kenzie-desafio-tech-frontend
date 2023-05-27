@@ -1,4 +1,3 @@
-import React from 'react'
 import { CgProfile } from 'react-icons/cg'
 import { MdEmail } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
@@ -7,6 +6,7 @@ import { RegisterModal } from './components/RegisterModal/RegisterModal'
 import { StyledForm } from './styles/StyledForm'
 import { LoginModal } from './components/LoginModal/LoginModal'
 import { useClient } from './hooks/useClient'
+import { Header } from './components/Header/Header'
 
 export function App() {
 	const { isRegisterModalOpen, isLoginModalOpen, clientInfo } = useClient()
@@ -17,13 +17,7 @@ export function App() {
 			{isLoginModalOpen && <LoginModal/>}
 
 			<StyledApp>
-				<header>
-					<h1>Desafio Tech<br/>Full Stack</h1>
-					<div>
-						<p><MdEmail size={18}/>{clientInfo.email}</p>
-						<p><BsTelephone size={15}/>{clientInfo.phoneNumber}</p>
-					</div>
-				</header>
+				<Header/>
 
 				<h2>Seus Contatos</h2>
 				<main>
