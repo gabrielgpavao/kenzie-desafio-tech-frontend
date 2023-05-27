@@ -28,26 +28,18 @@ export function App() {
 				<h2>Seus Contatos</h2>
 				<main>
 					<ul>
-						<li>
-							<figure>
-								<CgProfile size={40}/>
-							</figure>
-							<div>
-								<p className='clientName'>André Gomes</p>
-								<p><MdEmail size={18}/> andre@mail.com</p>
-								<p><BsTelephone size={15}/> 12345678901</p>
-							</div>
-						</li>
-						<li>
-							<figure>
-								<CgProfile size={40}/>
-							</figure>
-							<div>
-								<p className='clientName'>André Gomes</p>
-								<p><MdEmail size={18}/> andre@mail.com</p>
-								<p><BsTelephone size={15}/> 12345678901</p>
-							</div>
-						</li>
+						{clientInfo.contacts?.map((contact) => (
+							<li key={contact.id} id={contact.id + ''}>
+								<figure>
+									<CgProfile size={40}/>
+								</figure>
+								<div>
+									<p className='clientName'>{contact.fullName}</p>
+									<p><MdEmail size={18}/> {contact.email}</p>
+									<p><BsTelephone size={15}/> {contact.phoneNumber}</p>
+								</div>
+							</li>
+						))}
 					</ul>
 
 					<section>
