@@ -18,7 +18,12 @@ export function ContactProvider({ children }: iProviderProps) {
 
 	async function listContacts() {
 		try {
-			const response = await api.get('/contacts')
+			const token = sessionStorage.getItem('@desafio-tech:token')
+			const response = await api.get('/contacts', {
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			})
 			setContactsList(response.data)
 		} catch (error) {
 			console.log(error)
