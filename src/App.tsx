@@ -9,7 +9,7 @@ import { LoginModal } from './components/LoginModal/LoginModal'
 import { useClient } from './hooks/useClient'
 
 export function App() {
-	const { isRegisterModalOpen, isLoginModalOpen } = useClient()
+	const { isRegisterModalOpen, isLoginModalOpen, clientInfo } = useClient()
 
 	return (
 		<>
@@ -20,8 +20,8 @@ export function App() {
 				<header>
 					<h1>Desafio Tech<br/>Full Stack</h1>
 					<div>
-						<p><MdEmail size={18}/>gabriel@mail.com</p>
-						<p><BsTelephone size={15}/>12345678901</p>
+						<p><MdEmail size={18}/>{clientInfo.email}</p>
+						<p><BsTelephone size={15}/>{clientInfo.phoneNumber}</p>
 					</div>
 				</header>
 

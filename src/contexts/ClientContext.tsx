@@ -1,11 +1,11 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { iClientProviderValue, iProviderProps, iLoginData, iRegisterData } from './interfaces'
+import { iClientProviderValue, iProviderProps, iLoginData, iRegisterData, iClientData } from './interfaces'
 import { api } from '../services/api'
 
 export const ClientContext = createContext({} as iClientProviderValue)
 
 export function ClientProvider({ children }: iProviderProps) {
-	const [clientInfo, setClientInfo] = useState({})
+	const [clientInfo, setClientInfo] = useState({} as iClientData)
 	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(false)
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false)
 
@@ -81,7 +81,8 @@ export function ClientProvider({ children }: iProviderProps) {
 			isRegisterModalOpen,
 			setIsRegisterModalOpen,
 			isLoginModalOpen,
-			setIsLoginModalOpen
+			setIsLoginModalOpen,
+			clientInfo
 		}}>
 			{children}
 		</ClientContext.Provider>
