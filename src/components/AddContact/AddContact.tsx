@@ -35,7 +35,7 @@ export function AddContact() {
 				</fieldset>
 
 				<fieldset>
-					<label htmlFor='c'>Telefone</label>
+					<label htmlFor='phoneNumber'>Telefone</label>
 					<input id='phoneNumber' type='text' placeholder='Digite o telefone...' {...register('phoneNumber')}/>
 				</fieldset>
 
