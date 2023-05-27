@@ -61,6 +61,14 @@ export function ClientProvider({ children }: iProviderProps) {
 		}
 	}
 
+	async function deleteContact(contactId: string) {
+		try {
+			await api.delete(`/contacts/${contactId}`)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
 	useEffect(() => {
 		async function handleRetrieveClientInfo() {
 			try {
