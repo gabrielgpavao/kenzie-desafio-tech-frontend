@@ -5,12 +5,14 @@ import { api } from '../services/api'
 export const ClientContext = createContext({} as iClientProviderValue)
 
 export function ClientProvider({ children }: iProviderProps) {
-	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(true)
+	const [clientInfo, setClientInfo] = useState({})
+	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(false)
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false)
 
 	async function login(clientCredentials: iLoginData) {
 		try {
 			const response = await api.post('/login', clientCredentials)
+			sessionStorage.setItem('@desafio-tech:client-id', response.data.clientId)
 			sessionStorage.setItem('@desafio-tech:token', response.data.token)
 			setIsLoginModalOpen(false)
 
@@ -35,9 +37,16 @@ export function ClientProvider({ children }: iProviderProps) {
 		}
 	}
 
-	async function retrieveClientInfo() {
+	async function retrieveClientInfo(id: string, token: string) {
 		try {
-			const response = await api.get(`/clients/${1}`)
+			const response = await api.get(`/clients/${id}`, {
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			})
+
+			api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
 			return response.data
 		} catch (error) {
 			console.log(error)
@@ -46,7 +55,21 @@ export function ClientProvider({ children }: iProviderProps) {
 
 	useEffect(() => {
 		async function handleRetrieveClientInfo() {
-			await retrieveClientInfo()
+			try {
+				const token = sessionStorage.getItem('@desafio-tech:token')
+				const clientId = sessionStorage.getItem('@desafio-tech:client-id')
+
+				if (!token || !clientId) {
+					throw new Error('Unauthenticated')
+				}
+
+				const client = await retrieveClientInfo(clientId, token)
+				setClientInfo(client)
+
+			} catch (error) {
+				setIsLoginModalOpen(true)
+				console.log(error)
+			}
 		}
 		handleRetrieveClientInfo()
 	}, [])
