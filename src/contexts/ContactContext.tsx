@@ -24,7 +24,18 @@ export function ContactProvider({ children }: iProviderProps) {
 					Authorization: `Bearer ${token}`
 				}
 			})
+
+			api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
 			setContactsList(response.data)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	async function updateContact(contactId: string, contactData: tAddContactData) {
+		try {
+			await api.patch(`/contacts/${contactId}`, contactData)
 		} catch (error) {
 			console.log(error)
 		}
@@ -47,11 +58,12 @@ export function ContactProvider({ children }: iProviderProps) {
 
 	return (
 		<ContactContext.Provider value={{
-			createContact,
-			deleteContact,
 			contactsList,
 			setContactsList,
-			listContacts
+			listContacts,
+			createContact,
+			updateContact,
+			deleteContact
 		}}>
 			{children}
 		</ContactContext.Provider>
