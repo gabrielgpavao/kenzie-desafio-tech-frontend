@@ -2,6 +2,10 @@ import { Dispatch, SetStateAction } from 'react'
 
 export interface iContactProviderValues {
 	contactsList: Array<iContactData>,
+	contactToEdit: iContactData,
+	isEditContactModalOpen: boolean,
+	setIsEditContactModalOpen: Dispatch<SetStateAction<boolean>>,
+	setContactToEdit: Dispatch<SetStateAction<iContactData>>,
 	setContactsList: Dispatch<SetStateAction<iContactData[]>>,
 	createContact: (contactData: tAddContactData) => Promise<void>,
 	deleteContact: (clientId: string) => Promise<void>,
