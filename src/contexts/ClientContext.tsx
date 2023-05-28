@@ -54,6 +54,15 @@ export function ClientProvider({ children }: iProviderProps) {
 		}
 	}
 
+	async function updateClient(data: iClientData) {
+		try {
+			const clientId = sessionStorage.getItem('@desafio-tech:client-id')
+			await api.patch(`/clients/${clientId}`, data)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
 	useEffect(() => {
 		async function handleRetrieveClientInfo() {
 			try {
@@ -85,7 +94,8 @@ export function ClientProvider({ children }: iProviderProps) {
 			setIsLoginModalOpen,
 			clientInfo,
 			isEditClientModalOpen,
-			setIsEditClientModalOpen
+			setIsEditClientModalOpen,
+			updateClient
 		}}>
 			{children}
 		</ClientContext.Provider>
