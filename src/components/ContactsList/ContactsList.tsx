@@ -5,7 +5,11 @@ import { RiDeleteBinLine } from 'react-icons/ri'
 import { useContact } from '../../hooks/useContact'
 
 export function ContactsList() {
-	const { contactsList } = useContact()
+	const { contactsList, deleteContact, listContacts } = useContact()
+	async function handleDeleteContact(contactId: string) {
+		await deleteContact(contactId)
+		await listContacts()
+	}
 
 	return (
 		<ul>
@@ -20,8 +24,8 @@ export function ContactsList() {
 						<p><BsTelephone size={15}/> {contact.phoneNumber}</p>
 					</div>
 					<figure className='icons'>
-						<MdOutlineEdit size={25}/>
-						<RiDeleteBinLine size={23}/>
+						<MdOutlineEdit size={25} />
+						<RiDeleteBinLine size={23} onClick={async () => { await handleDeleteContact(contact.id + '') }}/>
 					</figure>
 				</li>
 			))}
