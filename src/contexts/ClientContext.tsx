@@ -16,6 +16,7 @@ export function ClientProvider({ children }: iProviderProps) {
 			sessionStorage.setItem('@desafio-tech:client-id', response.data.clientId)
 			sessionStorage.setItem('@desafio-tech:token', response.data.token)
 			setIsLoginModalOpen(false)
+			await retrieveClientInfo()
 
 		} catch (error) {
 			console.log(error)

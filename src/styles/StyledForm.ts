@@ -65,4 +65,9 @@ export const StyledForm = styled.form`
 			cursor: pointer;
 		}
 	}
+
+	.deleteClient {
+		color: #f50;
+		cursor: pointer;
+	}
 `

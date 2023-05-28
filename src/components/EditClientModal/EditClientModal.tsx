@@ -43,7 +43,7 @@ export function EditClientModal() {
 
 				<button type='submit'>Editar</button>
 
-				<span>Deletar Conta</span>
+				<span className='deleteClient'>Deletar Conta</span>
 			</StyledForm>
 		</BaseModal>
 	)
