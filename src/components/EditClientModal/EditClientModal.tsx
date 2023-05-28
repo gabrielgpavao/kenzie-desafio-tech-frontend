@@ -15,6 +15,7 @@ export function EditClientModal() {
 
 	const submitUpdate : SubmitHandler<tAddContact> = async (data) => {
 		await updateClient(data)
+		setIsEditClientModalOpen(false)
 	}
 
 	return (
