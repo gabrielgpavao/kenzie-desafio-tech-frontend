@@ -31,6 +31,12 @@ export const StyledApp = styled.div`
 				align-items: center;
 				gap: 8px;
 			}
+
+			small {
+				display: block;
+				margin-top: 4px;
+				cursor: pointer;
+			}
 		}
 	}
 
