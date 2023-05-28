@@ -8,7 +8,7 @@ export function EditClientModal() {
 		mode: 'onSubmit'
 	})
 
-	const { setIsEditClientModalOpen } = useClient()
+	const { clientInfo, setIsEditClientModalOpen } = useClient()
 
 	const submitUpdate : SubmitHandler<any> = async (data) => {
 		console.log(data)
@@ -22,18 +22,18 @@ export function EditClientModal() {
 					<span onClick={() => { setIsEditClientModalOpen(false) }}>X</span>
 				</div>
 				<fieldset>
-					<label htmlFor='editContactFullName'>Nome Completo</label>
-					<input id='editContactFullName' type='text' placeholder='Digite o nome completo...' defaultValue={'contactInfo.fullName'} {...register('fullName')}/>
+					<label htmlFor='editClientFullName'>Nome Completo</label>
+					<input id='editClientFullName' type='text' placeholder='Digite o nome completo...' defaultValue={clientInfo.fullName} {...register('fullName')}/>
 				</fieldset>
 
 				<fieldset>
-					<label htmlFor='editContactEmail'>Email</label>
-					<input id='editContactEmail' type='email' placeholder='Digite o email...' defaultValue={'contactInfo.email'} {...register('email')}/>
+					<label htmlFor='editClientEmail'>Email</label>
+					<input id='editClientEmail' type='email' placeholder='Digite o email...' defaultValue={clientInfo.email} {...register('email')}/>
 				</fieldset>
 
 				<fieldset>
-					<label htmlFor='editContactPhoneNumber'>Telefone</label>
-					<input id='editContactPhoneNumber' type='text' placeholder='Digite o telefone...' defaultValue={'contactInfo.phoneNumber'} {...register('phoneNumber')}/>
+					<label htmlFor='editClientPhoneNumber'>Telefone</label>
+					<input id='editClientPhoneNumber' type='text' placeholder='Digite o telefone...' defaultValue={clientInfo.phoneNumber} {...register('phoneNumber')}/>
 				</fieldset>
 
 				<button type='submit'>Editar</button>
