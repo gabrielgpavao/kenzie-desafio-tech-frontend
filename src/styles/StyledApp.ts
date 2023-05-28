@@ -56,18 +56,13 @@ export const StyledApp = styled.div`
 			width: 320px;
 			display: flex;
 			align-items: center;
-			gap: 15px;
+			justify-content: center;
 			border-radius: 6px;
 			background-color: #585858;
-
-			figure svg{
-				margin-left: 16px;
-			}
 			
 			div {
 				width: -webkit-fill-available;
-				padding: 8px 16px;
-				border-radius: 0 6px 6px 0;
+				padding: 8px 10px;
 				background-color: #afafaf;
 
 				p {
@@ -81,6 +76,23 @@ export const StyledApp = styled.div`
 				.clientName {
 					font-size: 20px;
 					font-weight: 500;
+				}
+			}
+
+			figure {
+				width: 80px;
+				display: grid;
+				place-items: center;
+			}
+			
+			.icons {
+				width: 60px;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+
+				svg {
+					cursor: pointer;
 				}
 			}
 		}
