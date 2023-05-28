@@ -7,6 +7,8 @@ export const ContactContext = createContext({} as iContactProviderValues)
 
 export function ContactProvider({ children }: iProviderProps) {
 	const [contactsList, setContactsList] = useState([] as Array<iContactData>)
+	const [contactToEdit, setContactToEdit] = useState({} as iContactData)
+	const [isEditContactModalOpen, setIsEditContactModalOpen] = useState(false)
 
 	async function createContact(contactData: tAddContactData) {
 		try {
@@ -59,6 +61,10 @@ export function ContactProvider({ children }: iProviderProps) {
 	return (
 		<ContactContext.Provider value={{
 			contactsList,
+			contactToEdit,
+			isEditContactModalOpen,
+			setIsEditContactModalOpen,
+			setContactToEdit,
 			setContactsList,
 			listContacts,
 			createContact,

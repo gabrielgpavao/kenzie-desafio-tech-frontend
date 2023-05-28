@@ -6,8 +6,18 @@ export const StyledForm = styled.form`
 	flex-direction: column;
 	gap: 15px;
 	
-	h2 {
-		font-size: 18px;
+	.modalHeader {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		
+		h2 {
+			font-size: 18px;
+		}
+
+		span {
+			cursor: pointer;
+		}
 	}
 	
 	fieldset {
