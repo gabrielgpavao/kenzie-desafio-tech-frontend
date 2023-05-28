@@ -63,6 +63,15 @@ export function ClientProvider({ children }: iProviderProps) {
 		}
 	}
 
+	async function deleteClient() {
+		try {
+			const clientId = sessionStorage.getItem('@desafio-tech:client-id')
+			await api.delete(`/clients/${clientId}`)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
 	useEffect(() => {
 		async function handleRetrieveClientInfo() {
 			try {
@@ -95,7 +104,8 @@ export function ClientProvider({ children }: iProviderProps) {
 			clientInfo,
 			isEditClientModalOpen,
 			setIsEditClientModalOpen,
-			updateClient
+			updateClient,
+			deleteClient
 		}}>
 			{children}
 		</ClientContext.Provider>
