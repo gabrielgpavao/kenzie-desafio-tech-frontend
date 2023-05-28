@@ -11,10 +11,11 @@ export function EditClientModal() {
 		resolver: zodResolver(addContactSchema)
 	})
 
-	const { clientInfo, setIsEditClientModalOpen, updateClient } = useClient()
+	const { clientInfo, setIsEditClientModalOpen, updateClient, retrieveClientInfo } = useClient()
 
 	const submitUpdate : SubmitHandler<tAddContact> = async (data) => {
 		await updateClient(data)
+		await retrieveClientInfo()
 		setIsEditClientModalOpen(false)
 	}
 

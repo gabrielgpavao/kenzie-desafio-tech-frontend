@@ -16,7 +16,8 @@ export interface iClientProviderValue {
 	isEditClientModalOpen: boolean,
 	setIsEditClientModalOpen: Dispatch<SetStateAction<boolean>>,
 	updateClient: (data: iClientData) => Promise<void>,
-	deleteClient: (data: iClientData) => Promise<void>
+	deleteClient: (data: iClientData) => Promise<void>,
+	retrieveClientInfo: () => Promise<void>
 }
 
 export interface iLoginData {

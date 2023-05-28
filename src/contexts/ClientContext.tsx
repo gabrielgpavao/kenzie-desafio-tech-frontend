@@ -38,8 +38,15 @@ export function ClientProvider({ children }: iProviderProps) {
 		}
 	}
 
-	async function retrieveClientInfo(clientId: string, token: string) {
+	async function retrieveClientInfo() {
 		try {
+			const token = sessionStorage.getItem('@desafio-tech:token')
+			const clientId = sessionStorage.getItem('@desafio-tech:client-id')
+
+			if (!token || !clientId) {
+				throw new Error('Unauthenticated')
+			}
+
 			const response = await api.get(`/clients/${clientId}`, {
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -48,8 +55,9 @@ export function ClientProvider({ children }: iProviderProps) {
 
 			api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-			return response.data
+			setClientInfo(response.data)
 		} catch (error) {
+			setIsLoginModalOpen(true)
 			console.log(error)
 		}
 	}
@@ -74,21 +82,7 @@ export function ClientProvider({ children }: iProviderProps) {
 
 	useEffect(() => {
 		async function handleRetrieveClientInfo() {
-			try {
-				const token = sessionStorage.getItem('@desafio-tech:token')
-				const clientId = sessionStorage.getItem('@desafio-tech:client-id')
-
-				if (!token || !clientId) {
-					throw new Error('Unauthenticated')
-				}
-
-				const client = await retrieveClientInfo(clientId, token)
-				setClientInfo(client)
-
-			} catch (error) {
-				setIsLoginModalOpen(true)
-				console.log(error)
-			}
+			await retrieveClientInfo()
 		}
 		handleRetrieveClientInfo()
 	}, [])
@@ -105,7 +99,8 @@ export function ClientProvider({ children }: iProviderProps) {
 			isEditClientModalOpen,
 			setIsEditClientModalOpen,
 			updateClient,
-			deleteClient
+			deleteClient,
+			retrieveClientInfo
 		}}>
 			{children}
 		</ClientContext.Provider>
