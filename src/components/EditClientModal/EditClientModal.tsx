@@ -1,14 +1,14 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { StyledForm } from '../../styles/StyledForm'
 import { BaseModal } from '../BaseModal/BaseModal'
-import { useContact } from '../../hooks/useContact'
+import { useClient } from '../../hooks/useClient'
 
 export function EditClientModal() {
 	const { register, handleSubmit } = useForm<any>({
 		mode: 'onSubmit'
 	})
 
-	const { setIsEditContactModalOpen } = useContact()
+	const { setIsEditClientModalOpen } = useClient()
 
 	const submitUpdate : SubmitHandler<any> = async (data) => {
 		console.log(data)
@@ -19,7 +19,7 @@ export function EditClientModal() {
 			<StyledForm onSubmit={handleSubmit(submitUpdate)}>
 				<div className='modalHeader'>
 					<h2>Editar Minhas Informações</h2>
-					<span onClick={() => { setIsEditContactModalOpen(false) }}>X</span>
+					<span onClick={() => { setIsEditClientModalOpen(false) }}>X</span>
 				</div>
 				<fieldset>
 					<label htmlFor='editContactFullName'>Nome Completo</label>

@@ -8,6 +8,7 @@ export function ClientProvider({ children }: iProviderProps) {
 	const [clientInfo, setClientInfo] = useState({} as iClientData)
 	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(false)
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false)
+	const [isEditClientModalOpen, setIsEditClientModalOpen] = useState<boolean>(false)
 
 	async function login(clientCredentials: iLoginData) {
 		try {
@@ -82,7 +83,9 @@ export function ClientProvider({ children }: iProviderProps) {
 			setIsRegisterModalOpen,
 			isLoginModalOpen,
 			setIsLoginModalOpen,
-			clientInfo
+			clientInfo,
+			isEditClientModalOpen,
+			setIsEditClientModalOpen
 		}}>
 			{children}
 		</ClientContext.Provider>
