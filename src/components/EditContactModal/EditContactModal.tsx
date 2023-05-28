@@ -27,7 +27,10 @@ export function EditContactModal({ contactInfo }: iEditContactModalProps) {
 	return (
 		<BaseModal>
 			<StyledForm onSubmit={handleSubmit(submitUpdate)}>
-				<h2>Editar Informações do Contato</h2>
+				<div className='modalHeader'>
+					<h2>Editar Informações do Contato</h2>
+					<span onClick={() => { setIsEditContactModalOpen(false) }}>X</span>
+				</div>
 				<fieldset>
 					<label htmlFor='editContactFullName'>Nome Completo</label>
 					<input id='editContactFullName' type='text' placeholder='Digite o nome completo...' defaultValue={contactInfo.fullName} {...register('fullName')}/>
