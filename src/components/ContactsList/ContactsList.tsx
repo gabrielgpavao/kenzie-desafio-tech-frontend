@@ -4,18 +4,22 @@ import { BsTelephone } from 'react-icons/bs'
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { useContact } from '../../hooks/useContact'
 import { EditContactModal } from '../EditContactModal/EditContactModal'
+import { useClient } from '../../hooks/useClient'
+import { ConfirmDeleteModal } from '../ConfirmDeleteModal/ConfirmDeleteModal'
 
 export function ContactsList() {
 	const { contactsList, deleteContact, listContacts, contactToEdit, setContactToEdit, isEditContactModalOpen, setIsEditContactModalOpen } = useContact()
+	const { isConfirmDeleteModalOpen, setIsConfirmDeleteModalOpen } = useClient()
 
-	async function handleDeleteContact(contactId: string) {
-		await deleteContact(contactId)
+	async function handleDeleteContact() {
+		await deleteContact(contactToEdit.id + '')
 		await listContacts()
 	}
 
 	return (
 		<>
 			{isEditContactModalOpen && <EditContactModal contactInfo={contactToEdit}/>}
+			{isConfirmDeleteModalOpen && <ConfirmDeleteModal callback={handleDeleteContact}/>}
 
 			<ul>
 				{contactsList.map((contact) => (
@@ -30,7 +34,7 @@ export function ContactsList() {
 						</div>
 						<figure className='icons'>
 							<MdOutlineEdit size={25} onClick={() => { setContactToEdit(contact); setIsEditContactModalOpen(true) }}/>
-							<RiDeleteBinLine size={23} onClick={async () => { await handleDeleteContact(contact.id + '') }}/>
+							<RiDeleteBinLine size={23} onClick={async () => { setContactToEdit(contact); setIsConfirmDeleteModalOpen(true) }}/>
 						</figure>
 					</li>
 				))}
