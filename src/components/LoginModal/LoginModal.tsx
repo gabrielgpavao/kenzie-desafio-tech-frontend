@@ -1,4 +1,3 @@
-import React from 'react'
 import { BaseModal } from '../BaseModal/BaseModal'
 import { StyledForm } from '../../styles/StyledForm'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -7,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useClient } from '../../hooks/useClient'
 
 export function LoginModal() {
-	const { register, handleSubmit, formState: { errors }} = useForm<tLoginData>({
+	const { register, handleSubmit } = useForm<tLoginData>({
 		mode: 'onBlur',
 		resolver: zodResolver(loginSchema)
 	})

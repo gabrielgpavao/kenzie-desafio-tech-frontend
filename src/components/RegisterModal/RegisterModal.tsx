@@ -1,4 +1,3 @@
-import React from 'react'
 import { BaseModal } from '../BaseModal/BaseModal'
 import { StyledForm } from '../../styles/StyledForm'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -7,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { registerSchema, tRegisterData } from './registerSchema'
 
 export function RegisterModal() {
-	const { register, handleSubmit, formState: { errors }} = useForm<tRegisterData>({
+	const { register, handleSubmit } = useForm<tRegisterData>({
 		mode: 'onBlur',
 		resolver: zodResolver(registerSchema)
 	})
