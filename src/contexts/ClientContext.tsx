@@ -9,6 +9,7 @@ export function ClientProvider({ children }: iProviderProps) {
 	const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(false)
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false)
 	const [isEditClientModalOpen, setIsEditClientModalOpen] = useState<boolean>(false)
+	const [isConfirmDeleteModalOpen, setIsConfirmDeleteModalOpen] = useState<boolean>(false)
 
 	async function login(clientCredentials: iLoginData) {
 		try {
@@ -101,7 +102,9 @@ export function ClientProvider({ children }: iProviderProps) {
 			setIsEditClientModalOpen,
 			updateClient,
 			deleteClient,
-			retrieveClientInfo
+			retrieveClientInfo,
+			isConfirmDeleteModalOpen,
+			setIsConfirmDeleteModalOpen
 		}}>
 			{children}
 		</ClientContext.Provider>

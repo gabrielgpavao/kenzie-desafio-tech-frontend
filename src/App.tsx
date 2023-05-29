@@ -6,7 +6,6 @@ import { Header } from './components/Header/Header'
 import { ContactsList } from './components/ContactsList/ContactsList'
 import { AddContact } from './components/AddContact/AddContact'
 import { ContactProvider } from './contexts/ContactContext'
-import { ConfirmDeleteModal } from './components/ConfirmDeleteModal/ConfirmDeleteModal'
 
 export function App() {
 	const { isRegisterModalOpen, isLoginModalOpen } = useClient()
@@ -15,7 +14,7 @@ export function App() {
 		<>
 			{isRegisterModalOpen && <RegisterModal/>}
 			{isLoginModalOpen && <LoginModal/>}
-			<ConfirmDeleteModal/>
+
 			<StyledApp>
 				<Header/>
 

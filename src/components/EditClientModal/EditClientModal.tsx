@@ -11,7 +11,7 @@ export function EditClientModal() {
 		resolver: zodResolver(addContactSchema)
 	})
 
-	const { clientInfo, setIsEditClientModalOpen, updateClient, retrieveClientInfo } = useClient()
+	const { clientInfo, setIsEditClientModalOpen, updateClient, retrieveClientInfo, setIsConfirmDeleteModalOpen } = useClient()
 
 	const submitUpdate : SubmitHandler<tAddContact> = async (data) => {
 		await updateClient(data)
@@ -43,7 +43,12 @@ export function EditClientModal() {
 
 				<button type='submit'>Editar</button>
 
-				<span className='deleteClient'>Deletar Conta</span>
+				<span
+					className='deleteClient'
+					onClick={() => { setIsEditClientModalOpen(false); setIsConfirmDeleteModalOpen(true) }}
+				>
+					Deletar Conta
+				</span>
 			</StyledForm>
 		</BaseModal>
 	)
