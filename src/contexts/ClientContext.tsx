@@ -77,6 +77,12 @@ export function ClientProvider({ children }: iProviderProps) {
 		try {
 			const clientId = sessionStorage.getItem('@desafio-tech:client-id')
 			await api.delete(`/clients/${clientId}`)
+
+			sessionStorage.removeItem('@desafio-tech:client-id')
+			sessionStorage.removeItem('@desafio-tech:token')
+
+			setIsLoginModalOpen(true)
+
 		} catch (error) {
 			console.log(error)
 		}
